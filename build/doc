@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -eux
+
+build_dir="gh-pages-build"
+
+mvn javadoc:javadoc
+
+rm -rf "${build_dir}"
+
+git clone --branch=gh-pages git@github.com:grzm/named-uuid.git "${build_dir}"
+
+cd "${build_dir}"
+
+git rm -rf ./*
+
+cp -Rf ../target/site/apidocs/* ./
+
+git add --force .
+
+git commit -m "Updating gh-pages api docs"
+
+git push --force --quiet origin gh-pages
+
+cd ../
+
+rm -rf "${build_dir}"
