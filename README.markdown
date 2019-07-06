@@ -34,6 +34,8 @@ Latest release: `1.0.0`
 
 ## Usage
 
+[API docs](https://grzm.github.io/named-uuid)
+
 The `com.grzm.NamedUUID` class provides static functions to create Version 3 and Version 5 UUIDs.
 
 It also provides constants for the namespaces provided in the specification as well as the NIL UUID.
